@@ -13,53 +13,58 @@
       padding: 24px 16px;
     }
     .header { text-align: center; margin-bottom: 20px; }
-    .header h1 { font-size: 28px; font-weight: 800; color: #1d4ed8; display: flex; align-items: center; justify-content: center; gap: 10px; }
+    .header h1 { font-size: 26px; font-weight: 800; color: #1d4ed8; display: flex; align-items: center; justify-content: center; gap: 10px; }
 
     .main-card {
       background: #fff;
       border-radius: 16px;
-      padding: 28px;
+      padding: 24px;
       box-shadow: 0 4px 24px rgba(0,0,0,0.10);
-      max-width: 950px;
+      max-width: 1050px;
       margin: 0 auto 20px auto;
     }
     .card-title { font-weight: 700; font-size: 15px; color: #1e293b; margin-bottom: 16px; display: flex; align-items: center; gap: 6px; }
 
-    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
-    @media (max-width: 600px) { .grid-2 { grid-template-columns: 1fr; } }
+    /* 3 COLUMN MAIN GRID */
+    .three-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr 180px;
+      gap: 16px;
+    }
+    @media (max-width: 700px) { .three-col { grid-template-columns: 1fr; } }
 
-    .field { display: flex; flex-direction: column; }
-    .field label { font-size: 11px; font-weight: 700; color: #64748b; margin-bottom: 5px; text-transform: uppercase; letter-spacing: 0.5px; }
+    /* FIELDS */
+    .field { display: flex; flex-direction: column; margin-bottom: 12px; }
+    .field label { font-size: 10px; font-weight: 700; color: #64748b; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.5px; }
     .field input {
       border: 1.5px solid #e2e8f0;
       border-radius: 8px;
-      padding: 10px 12px;
-      font-size: 14px;
+      padding: 9px 11px;
+      font-size: 13px;
       color: #1e293b;
       outline: none;
       transition: border 0.2s;
       background: #f8fafc;
+      width: 100%;
     }
     .field input:focus { border-color: #3b82f6; background: #fff; }
     .field input.error { border-color: #ef4444; background: #fff5f5; }
 
     .pass-wrap { position: relative; }
-    .pass-wrap input { width: 100%; padding-right: 40px; }
-    .eye-btn { position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: none; border: none; cursor: pointer; font-size: 15px; padding: 0; color: #94a3b8; }
+    .pass-wrap input { padding-right: 36px; }
+    .eye-btn { position: absolute; right: 9px; top: 50%; transform: translateY(-50%); background: none; border: none; cursor: pointer; font-size: 14px; color: #94a3b8; padding: 0; }
 
-    .bottom-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
-    @media (max-width: 600px) { .bottom-row { grid-template-columns: 1fr; } }
-
-    .tabs { display: flex; gap: 4px; margin-bottom: 8px; background: #f1f5f9; border-radius: 8px; padding: 4px; }
-    .tab { flex: 1; padding: 6px; border: none; border-radius: 6px; font-size: 13px; font-weight: 600; cursor: pointer; background: none; color: #64748b; transition: all 0.2s; }
+    /* TABS */
+    .tabs { display: flex; gap: 3px; margin-bottom: 7px; background: #f1f5f9; border-radius: 7px; padding: 3px; }
+    .tab { flex: 1; padding: 6px 4px; border: none; border-radius: 5px; font-size: 12px; font-weight: 600; cursor: pointer; background: none; color: #64748b; transition: all 0.2s; }
     .tab.active { background: #fff; color: #1d4ed8; box-shadow: 0 1px 4px rgba(0,0,0,0.1); }
 
     textarea {
       width: 100%;
       border: 1.5px solid #e2e8f0;
       border-radius: 8px;
-      padding: 10px 12px;
-      font-size: 14px;
+      padding: 9px 11px;
+      font-size: 13px;
       color: #1e293b;
       resize: vertical;
       outline: none;
@@ -70,47 +75,31 @@
     textarea:focus { border-color: #3b82f6; background: #fff; }
     textarea.error { border-color: #ef4444; background: #fff5f5; }
 
-    .recipients-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
-    .found-badge { background: #dbeafe; color: #2563eb; border-radius: 20px; padding: 2px 10px; font-size: 12px; font-weight: 700; }
-    .hint { font-size: 12px; color: #94a3b8; margin-bottom: 6px; }
+    .found-badge { background: #dbeafe; color: #2563eb; border-radius: 20px; padding: 2px 9px; font-size: 11px; font-weight: 700; }
+    .hint { font-size: 11px; color: #94a3b8; margin-bottom: 5px; }
 
-    .account-row { display: grid; grid-template-columns: 1fr 1fr auto; gap: 8px; margin-bottom: 8px; align-items: center; }
-    .account-row input { border: 1.5px solid #e2e8f0; border-radius: 8px; padding: 8px 10px; font-size: 13px; color: #1e293b; outline: none; background: #f8fafc; width: 100%; }
-    .account-row input:focus { border-color: #3b82f6; background: #fff; }
-    .btn-remove { background: #fee2e2; color: #dc2626; border: none; border-radius: 8px; width: 32px; height: 32px; cursor: pointer; font-size: 18px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-    .btn-add-acc { background: #eff6ff; color: #2563eb; border: 1.5px dashed #93c5fd; border-radius: 8px; padding: 7px; font-size: 13px; font-weight: 600; cursor: pointer; width: 100%; margin-top: 4px; }
-    .btn-add-acc:hover { background: #dbeafe; }
+    /* PROGRESS MONITOR — 3rd column */
+    .progress-col {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .progress-title { font-size: 11px; font-weight: 700; color: #1e293b; margin-bottom: 4px; display: flex; align-items: center; gap: 4px; }
 
-    .spam-box { background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px; padding: 9px 14px; display: flex; align-items: center; gap: 8px; margin-bottom: 16px; }
-
-    /* PROGRESS — inline with recipients side */
-    .progress-inline {
+    .stat-box {
       background: #f8fafc;
       border: 1px solid #e2e8f0;
-      border-radius: 10px;
-      padding: 12px 14px;
-      margin-bottom: 16px;
-    }
-    .stats-row {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 8px;
-      margin-bottom: 10px;
-    }
-    .stat-box {
-      background: #fff;
       border-radius: 8px;
-      padding: 8px 6px;
+      padding: 7px 8px;
       text-align: center;
-      border: 1px solid #e2e8f0;
     }
-    .stat-label { font-size: 9px; font-weight: 700; color: #94a3b8; letter-spacing: 0.8px; text-transform: uppercase; margin-bottom: 3px; }
-    .stat-num { font-size: 20px; font-weight: 800; line-height: 1; }
+    .stat-label { font-size: 8px; font-weight: 700; color: #94a3b8; letter-spacing: 0.8px; text-transform: uppercase; margin-bottom: 2px; }
+    .stat-num { font-size: 18px; font-weight: 800; line-height: 1; }
 
-    .progress-track { height: 8px; background: #e2e8f0; border-radius: 99px; overflow: hidden; margin-bottom: 6px; }
+    .progress-track { height: 6px; background: #e2e8f0; border-radius: 99px; overflow: hidden; }
     .progress-fill { height: 100%; border-radius: 99px; transition: width 0.4s ease; background: linear-gradient(90deg, #3b82f6, #6366f1); }
-    .status-info { font-size: 11px; color: #64748b; text-align: center; min-height: 16px; }
-    .completed-msg { text-align: center; color: #16a34a; font-weight: 700; font-size: 13px; margin-top: 6px; }
+    .status-info { font-size: 10px; color: #64748b; text-align: center; min-height: 14px; line-height: 1.3; }
+    .completed-msg { text-align: center; color: #16a34a; font-weight: 700; font-size: 11px; }
 
     /* SEND BUTTON */
     .btn-send {
@@ -119,25 +108,26 @@
       color: #fff;
       border: none;
       border-radius: 10px;
-      padding: 15px;
-      font-size: 16px;
+      padding: 13px;
+      font-size: 15px;
       font-weight: 700;
       cursor: pointer;
       transition: all 0.2s;
+      margin-top: 14px;
     }
     .btn-send:hover:not(:disabled) { background: #15803d; transform: translateY(-1px); }
     .btn-send:disabled { background: #64748b; cursor: not-allowed; transform: none; }
     .btn-send.sending { background: #2563eb; }
 
-    /* LOGS */
-    .logs-card { background: #fff; border-radius: 16px; padding: 20px; box-shadow: 0 4px 24px rgba(0,0,0,0.10); max-width: 950px; margin: 0 auto; }
-    .logs-list { max-height: 200px; overflow-y: auto; }
-    .log-row { display: flex; align-items: center; gap: 8px; padding: 6px 0; border-bottom: 1px solid #f1f5f9; font-size: 13px; }
-    .log-email { color: #1e293b; font-family: monospace; flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-    .log-account { color: #94a3b8; font-size: 11px; white-space: nowrap; }
-    .log-reason { color: #dc2626; font-size: 11px; margin-left: auto; }
+    .spam-box { background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px; padding: 8px 12px; display: flex; align-items: center; gap: 7px; margin-top: 14px; }
 
-    details summary { cursor: pointer; font-size: 13px; font-weight: 600; color: #2563eb; margin-bottom: 8px; }
+    /* LOGS */
+    .logs-card { background: #fff; border-radius: 16px; padding: 18px; box-shadow: 0 4px 24px rgba(0,0,0,0.10); max-width: 1050px; margin: 0 auto; }
+    .logs-list { max-height: 180px; overflow-y: auto; }
+    .log-row { display: flex; align-items: center; gap: 8px; padding: 5px 0; border-bottom: 1px solid #f1f5f9; font-size: 12px; }
+    .log-email { color: #1e293b; font-family: monospace; flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .log-account { color: #94a3b8; font-size: 10px; white-space: nowrap; }
+    .log-reason { color: #dc2626; font-size: 11px; margin-left: auto; }
   </style>
 </head>
 <body>
@@ -149,117 +139,107 @@
 <div class="main-card">
   <div class="card-title">✏️ Compose Message</div>
 
-  <!-- ROW 1: Sender Name + Gmail -->
-  <div class="grid-2">
-    <div class="field">
-      <label>Sender Name</label>
-      <input type="text" id="senderName" placeholder="Your Name or Company" />
-    </div>
-    <div class="field">
-      <label>Gmail</label>
-      <input type="email" id="singleGmail" placeholder="you@gmail.com" />
-    </div>
-  </div>
+  <div class="three-col">
 
-  <!-- ROW 2: App Password + Subject -->
-  <div class="grid-2">
-    <div class="field">
-      <label>App Password</label>
-      <div class="pass-wrap">
-        <input type="password" id="singlePass" placeholder="xxxx xxxx xxxx xxxx" />
-        <button class="eye-btn" onclick="togglePass()" id="eyeBtn">👁️</button>
-      </div>
-    </div>
-    <div class="field">
-      <label>Email Subject</label>
-      <input type="text" id="subject" placeholder="Subject line..." />
-    </div>
-  </div>
-
-  <!-- ROW 3: Message Body + Recipients -->
-  <div class="bottom-row">
-    <!-- LEFT: Message Body -->
+    <!-- COLUMN 1 -->
     <div>
-      <div style="font-size:13px;font-weight:700;color:#1e293b;margin-bottom:6px;">📝 Message Body</div>
+      <div class="field">
+        <label>Sender Name</label>
+        <input type="text" id="senderName" placeholder="Your Name" />
+      </div>
+      <div class="field">
+        <label>App Password</label>
+        <div class="pass-wrap">
+          <input type="password" id="singlePass" placeholder="xxxx xxxx xxxx xxxx" />
+          <button class="eye-btn" onclick="togglePass()" id="eyeBtn">👁️</button>
+        </div>
+      </div>
+      <div style="font-size:12px;font-weight:700;color:#1e293b;margin-bottom:6px;">📝 Message Body</div>
       <div class="tabs">
-        <button class="tab active" id="tabPlain" onclick="switchTab('plain')">Plain Text</button>
+        <button class="tab active" id="tabPlain" onclick="switchTab('plain')">Plain</button>
         <button class="tab" id="tabHtml" onclick="switchTab('html')">HTML</button>
         <button class="tab" id="tabBoth" onclick="switchTab('both')">Both</button>
       </div>
-      <div id="plainSection">
-        <textarea id="bodyText" rows="9" placeholder="Write your email here..."></textarea>
-      </div>
-      <div id="htmlSection" style="display:none;">
-        <textarea id="bodyHtml" rows="9" placeholder="<h1>Hello!</h1><p>HTML email...</p>"></textarea>
-      </div>
+      <div id="plainSection"><textarea id="bodyText" rows="8" placeholder="Write your email here..."></textarea></div>
+      <div id="htmlSection" style="display:none;"><textarea id="bodyHtml" rows="8" placeholder="<p>HTML email...</p>"></textarea></div>
       <div id="bothSection" style="display:none;">
-        <textarea id="bodyText2" rows="4" placeholder="Plain text..." style="margin-bottom:6px;"></textarea>
-        <textarea id="bodyHtml2" rows="4" placeholder="<p>HTML version...</p>"></textarea>
+        <textarea id="bodyText2" rows="4" placeholder="Plain text..." style="margin-bottom:5px;"></textarea>
+        <textarea id="bodyHtml2" rows="4" placeholder="<p>HTML...</p>"></textarea>
       </div>
     </div>
 
-    <!-- RIGHT: Recipients + Progress Monitor -->
+    <!-- COLUMN 2 -->
     <div>
-      <div class="recipients-header">
-        <div style="font-size:13px;font-weight:700;color:#1e293b;">👥 Recipients</div>
+      <div class="field">
+        <label>Gmail</label>
+        <input type="email" id="singleGmail" placeholder="you@gmail.com" />
+      </div>
+      <div class="field">
+        <label>Email Subject</label>
+        <input type="text" id="subject" placeholder="Subject line..." />
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:5px;">
+        <div style="font-size:12px;font-weight:700;color:#1e293b;">👥 Recipients</div>
         <span class="found-badge" id="foundBadge">0 found</span>
       </div>
       <div class="hint">Paste emails — comma, new line, or Excel copy</div>
-      <textarea id="recipients" rows="6" placeholder="email1@gmail.com&#10;email2@gmail.com&#10;email3@gmail.com" oninput="updateCount()"></textarea>
-
-      <!-- PROGRESS MONITOR — right side under recipients -->
-      <div class="progress-inline" style="margin-top:10px;">
-        <div style="font-size:12px;font-weight:700;color:#1e293b;margin-bottom:8px;">📊 Progress Monitor</div>
-        <div class="stats-row">
-          <div class="stat-box"><div class="stat-label">Total</div><div class="stat-num" id="statTotal" style="color:#2563eb;">0</div></div>
-          <div class="stat-box"><div class="stat-label">Sent</div><div class="stat-num" id="statSent" style="color:#16a34a;">0</div></div>
-          <div class="stat-box"><div class="stat-label">Failed</div><div class="stat-num" id="statFailed" style="color:#dc2626;">0</div></div>
-          <div class="stat-box"><div class="stat-label">Left</div><div class="stat-num" id="statRemaining" style="color:#d97706;">0</div></div>
-        </div>
-        <div class="progress-track"><div class="progress-fill" id="progressFill" style="width:0%;"></div></div>
-        <div class="status-info" id="statusInfo">Ready to send</div>
-        <div class="completed-msg" id="completedMsg" style="display:none;">✅ Completed!</div>
-      </div>
+      <textarea id="recipients" rows="10" placeholder="email1@gmail.com&#10;email2@gmail.com&#10;email3@gmail.com" oninput="updateCount()"></textarea>
     </div>
+
+    <!-- COLUMN 3: PROGRESS MONITOR -->
+    <div class="progress-col">
+      <div class="progress-title">📊 Progress Monitor</div>
+
+      <div class="stat-box">
+        <div class="stat-label">Total</div>
+        <div class="stat-num" id="statTotal" style="color:#2563eb;">0</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-label">Sent</div>
+        <div class="stat-num" id="statSent" style="color:#16a34a;">0</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-label">Failed</div>
+        <div class="stat-num" id="statFailed" style="color:#dc2626;">0</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-label">Remaining</div>
+        <div class="stat-num" id="statRemaining" style="color:#d97706;">0</div>
+      </div>
+
+      <div class="progress-track">
+        <div class="progress-fill" id="progressFill" style="width:0%;"></div>
+      </div>
+      <div class="status-info" id="statusInfo">Ready</div>
+      <div class="completed-msg" id="completedMsg" style="display:none;">✅ Done!</div>
+    </div>
+
   </div>
 
-  <!-- MULTIPLE ACCOUNTS -->
-  <details style="margin-bottom:14px;">
-    <summary>➕ Add Multiple Gmail Accounts (Optional)</summary>
-    <div style="margin-top:8px;">
-      <div class="hint">Emails rotate between all accounts automatically</div>
-      <div id="extraAccounts"></div>
-      <button class="btn-add-acc" onclick="addAccount()">+ Add Another Gmail Account</button>
-    </div>
-  </details>
-
-  <!-- SPAM PROTECTION -->
+  <!-- SPAM BOX -->
   <div class="spam-box">
     <span>🛡️</span>
-    <span style="font-size:13px;color:#15803d;font-weight:600;">Spam Protection Active</span>
-    <span style="margin-left:auto;font-size:12px;color:#16a34a;font-weight:600;">✅ Ready</span>
+    <span style="font-size:12px;color:#15803d;font-weight:600;">Spam Protection Active</span>
+    <span style="margin-left:auto;font-size:11px;color:#16a34a;font-weight:600;">✅ Ready</span>
   </div>
 
   <!-- SEND ALL BUTTON -->
-  <button class="btn-send" id="sendBtn" onclick="startSending()">
-    ✈️ Send All
-  </button>
+  <button class="btn-send" id="sendBtn" onclick="startSending()">✈️ Send All</button>
 </div>
 
 <!-- LOGS -->
-<div class="logs-card" id="logsCard" style="display:none; margin-top:20px;">
+<div class="logs-card" id="logsCard" style="display:none; margin-top:16px;">
   <div class="card-title">📋 Send Log</div>
   <div class="logs-list" id="logsList"></div>
 </div>
 
 <script>
-  let extraAccounts = [];
   let currentTab = 'plain';
   let isSending = false;
   let sent = 0, failed = 0, total = 0;
   let sendingStarted = false;
 
-  // Auto-save fields
+  // Auto-save
   function saveFields() {
     try {
       localStorage.setItem('sc_name', document.getElementById('senderName').value);
@@ -282,33 +262,12 @@
     document.getElementById(id).addEventListener('input', saveFields);
   });
 
-  // Password toggle
   function togglePass() {
     const inp = document.getElementById('singlePass');
-    const btn = document.getElementById('eyeBtn');
     inp.type = inp.type === 'password' ? 'text' : 'password';
-    btn.textContent = inp.type === 'password' ? '👁️' : '🙈';
+    document.getElementById('eyeBtn').textContent = inp.type === 'password' ? '👁️' : '🙈';
   }
 
-  // Extra accounts
-  function addAccount() {
-    extraAccounts.push({ id: Date.now(), gmail: '', pass: '' });
-    renderAccounts();
-  }
-  function removeAccount(id) {
-    extraAccounts = extraAccounts.filter(a => a.id !== id);
-    renderAccounts();
-  }
-  function renderAccounts() {
-    document.getElementById('extraAccounts').innerHTML = extraAccounts.map((a, i) => `
-      <div class="account-row">
-        <input type="email" placeholder="gmail@gmail.com" value="${a.gmail}" oninput="extraAccounts[${i}].gmail=this.value" />
-        <input type="password" placeholder="App Password" value="${a.pass}" oninput="extraAccounts[${i}].pass=this.value" />
-        <button class="btn-remove" onclick="removeAccount(${a.id})">×</button>
-      </div>`).join('');
-  }
-
-  // Tabs
   function switchTab(tab) {
     currentTab = tab;
     document.getElementById('plainSection').style.display = tab==='plain'?'block':'none';
@@ -317,10 +276,10 @@
     ['Plain','Html','Both'].forEach(t => document.getElementById('tab'+t).classList.toggle('active', t.toLowerCase()===tab));
   }
 
-  // Parse + count emails
   function parseEmails(raw) {
     return [...new Set(raw.split(/[\n,;]+/).map(e=>e.trim()).filter(e=>/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e)))];
   }
+
   function updateCount() {
     const emails = parseEmails(document.getElementById('recipients').value);
     document.getElementById('foundBadge').textContent = emails.length + ' found';
@@ -330,14 +289,12 @@
     }
   }
 
-  // Get body content
   function getBody() {
     if (currentTab==='plain') return { bodyText: document.getElementById('bodyText').value, bodyHtml:'', format:'plain' };
     if (currentTab==='html') return { bodyText:'', bodyHtml: document.getElementById('bodyHtml').value, format:'html' };
     return { bodyText: document.getElementById('bodyText2').value, bodyHtml: document.getElementById('bodyHtml2').value, format:'both' };
   }
 
-  // Validate — fields stay filled, just red border
   function validate() {
     let ok = true;
     ['senderName','singleGmail','singlePass','subject'].forEach(id => {
@@ -350,18 +307,11 @@
     else rec.classList.remove('error');
     const { bodyText, bodyHtml } = getBody();
     if (!bodyText && !bodyHtml) {
-      const bEl = document.getElementById(currentTab==='plain'?'bodyText':currentTab==='html'?'bodyHtml':'bodyText2');
-      bEl.classList.add('error'); ok=false;
+      document.getElementById(currentTab==='html'?'bodyHtml':'bodyText').classList.add('error');
+      ok=false;
     }
-    if (!ok) {
-      setStatus('⚠️ Saari fields fill karo!', '#ef4444');
-    }
+    if (!ok) setStatus('⚠️ Fill all fields!', '#ef4444');
     return ok;
-  }
-
-  function getAllAccounts() {
-    const main = { gmail: document.getElementById('singleGmail').value.trim(), pass: document.getElementById('singlePass').value.replace(/\s/g,'') };
-    return [main, ...extraAccounts.filter(a=>a.gmail&&a.pass).map(a=>({gmail:a.gmail,pass:a.pass.replace(/\s/g,'')}))];
   }
 
   function setStatus(msg, color='#64748b') {
@@ -370,22 +320,45 @@
     el.style.color = color;
   }
 
-  // MAIN SEND FUNCTION
+  function updateStats() {
+    document.getElementById('statTotal').textContent = total;
+    document.getElementById('statSent').textContent = sent;
+    document.getElementById('statFailed').textContent = failed;
+    document.getElementById('statRemaining').textContent = Math.max(0,total-sent-failed);
+    const pct = total>0?Math.round(((sent+failed)/total)*100):0;
+    document.getElementById('progressFill').style.width = pct+'%';
+  }
+
+  function addLog(email, account, ok, reason) {
+    const list = document.getElementById('logsList');
+    const row = document.createElement('div');
+    row.className = 'log-row';
+    row.innerHTML = `
+      <span style="color:${ok?'#16a34a':'#dc2626'}">${ok?'✅':'❌'}</span>
+      <span class="log-email">${email}</span>
+      <span class="log-account">via ${account}</span>
+      ${!ok?`<span class="log-reason">${reason||'Failed'}</span>`:''}`;
+    list.appendChild(row);
+    list.scrollTop = list.scrollHeight;
+  }
+
+  function sleep(ms) { return new Promise(r=>setTimeout(r,ms)); }
+
   async function startSending() {
-    if (isSending) return; // Prevent double click
+    if (isSending) return;
     if (!validate()) return;
 
     const emails = parseEmails(document.getElementById('recipients').value);
     const subject = document.getElementById('subject').value.trim();
     const senderName = document.getElementById('senderName').value.trim();
+    const gmail = document.getElementById('singleGmail').value.trim();
+    const pass = document.getElementById('singlePass').value.replace(/\s/g,'');
     const { bodyText, bodyHtml, format } = getBody();
-    const accounts = getAllAccounts();
 
     isSending = true;
     sendingStarted = true;
     sent = 0; failed = 0; total = emails.length;
 
-    // Disable button immediately
     const btn = document.getElementById('sendBtn');
     btn.disabled = true;
     btn.classList.add('sending');
@@ -399,7 +372,6 @@
 
     for (let i=0; i<emails.length; i++) {
       const email = emails[i];
-      const account = accounts[i % accounts.length];
       setStatus(`📤 ${i+1}/${total}: ${email}`);
       btn.textContent = `⏳ Sending... ${i+1}/${total}`;
 
@@ -407,30 +379,19 @@
         const res = await fetch('/send', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            gmail: account.gmail,
-            appPassword: account.pass,
-            senderName,
-            to: email,
-            subject,
-            bodyText,
-            bodyHtml,
-            format
-          })
+          body: JSON.stringify({ gmail, appPassword: pass, senderName, to: email, subject, bodyText, bodyHtml, format })
         });
         const data = await res.json();
-        if (res.ok && data.success) { sent++; addLog(email, account.gmail, true, null); }
-        else { failed++; addLog(email, account.gmail, false, data.error||'Failed'); }
+        if (res.ok && data.success) { sent++; addLog(email, gmail, true, null); }
+        else { failed++; addLog(email, gmail, false, data.error||'Failed'); }
       } catch(e) {
-        failed++; addLog(email, account.gmail, false, 'Network error');
+        failed++; addLog(email, gmail, false, 'Network error');
       }
 
       updateStats();
-      // 500ms delay — safe speed, not too slow not too fast
-      if (i < emails.length-1) await sleep(500);
+      if (i < emails.length-1) await sleep(800);
     }
 
-    // Done
     isSending = false;
     sendingStarted = false;
     btn.disabled = false;
@@ -438,50 +399,22 @@
     btn.textContent = '🔄 Send Again';
     document.getElementById('progressFill').style.background = '#16a34a';
     document.getElementById('completedMsg').style.display = 'block';
-    setStatus(`✅ Done! ${sent} sent, ${failed} failed`, '#16a34a');
+    setStatus(`✅ ${sent} sent, ${failed} failed`, '#16a34a');
 
-    // Send Again — reset progress only, keep fields
     btn.onclick = function() {
-      sent=0; failed=0; total=0; sendingStarted=false;
-      document.getElementById('statTotal').textContent='0';
-      document.getElementById('statSent').textContent='0';
-      document.getElementById('statFailed').textContent='0';
-      document.getElementById('statRemaining').textContent='0';
+      sent=0; failed=0; total=0; sendingStarted=false; isSending=false;
+      ['statTotal','statSent','statFailed','statRemaining'].forEach(id=>document.getElementById(id).textContent='0');
       document.getElementById('progressFill').style.width='0%';
       document.getElementById('progressFill').style.background='linear-gradient(90deg,#3b82f6,#6366f1)';
       document.getElementById('completedMsg').style.display='none';
       document.getElementById('logsCard').style.display='none';
       document.getElementById('logsList').innerHTML='';
-      setStatus('Ready to send','#64748b');
+      setStatus('Ready','#64748b');
       btn.textContent='✈️ Send All';
       btn.onclick = startSending;
       updateCount();
     };
   }
-
-  function updateStats() {
-    document.getElementById('statTotal').textContent = total;
-    document.getElementById('statSent').textContent = sent;
-    document.getElementById('statFailed').textContent = failed;
-    document.getElementById('statRemaining').textContent = Math.max(0, total-sent-failed);
-    const pct = total>0 ? Math.round(((sent+failed)/total)*100) : 0;
-    document.getElementById('progressFill').style.width = pct+'%';
-  }
-
-  function addLog(email, account, ok, reason) {
-    const list = document.getElementById('logsList');
-    const row = document.createElement('div');
-    row.className = 'log-row';
-    row.innerHTML = `
-      <span style="color:${ok?'#16a34a':'#dc2626'}">${ok?'✅':'❌'}</span>
-      <span class="log-email">${email}</span>
-      <span class="log-account">via ${account}</span>
-      ${!ok?`<span class="log-reason">${reason}</span>`:''}`;
-    list.appendChild(row);
-    list.scrollTop = list.scrollHeight;
-  }
-
-  function sleep(ms) { return new Promise(r=>setTimeout(r,ms)); }
 </script>
 </body>
 </html>
