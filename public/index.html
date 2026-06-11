@@ -20,20 +20,35 @@
       border-radius: 16px;
       padding: 24px;
       box-shadow: 0 4px 24px rgba(0,0,0,0.10);
-      max-width: 1050px;
+      max-width: 1100px;
       margin: 0 auto 20px auto;
     }
     .card-title { font-weight: 700; font-size: 15px; color: #1e293b; margin-bottom: 16px; display: flex; align-items: center; gap: 6px; }
 
-    /* 3 COLUMN MAIN GRID */
+    /* CSV UPLOAD SECTION */
+    .csv-section {
+      background: #f0f9ff;
+      border: 2px dashed #93c5fd;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .csv-section h3 { font-size: 14px; font-weight: 700; color: #1d4ed8; margin-bottom: 8px; }
+    .csv-section p { font-size: 12px; color: #64748b; margin-bottom: 12px; }
+    .csv-format { background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 10px; margin-bottom: 12px; text-align: left; }
+    .csv-format code { font-size: 12px; color: #1e293b; font-family: monospace; }
+    .btn-upload { background: #2563eb; color: #fff; border: none; border-radius: 8px; padding: 10px 20px; font-size: 13px; font-weight: 600; cursor: pointer; }
+    .btn-upload:hover { background: #1d4ed8; }
+    .accounts-loaded { background: #dcfce7; border: 1px solid #86efac; border-radius: 8px; padding: 10px 14px; font-size: 13px; color: #15803d; font-weight: 600; margin-top: 10px; display: none; }
+
     .three-col {
       display: grid;
-      grid-template-columns: 1fr 1fr 180px;
+      grid-template-columns: 1fr 1fr 175px;
       gap: 16px;
     }
-    @media (max-width: 700px) { .three-col { grid-template-columns: 1fr; } }
+    @media (max-width: 750px) { .three-col { grid-template-columns: 1fr; } }
 
-    /* FIELDS */
     .field { display: flex; flex-direction: column; margin-bottom: 12px; }
     .field label { font-size: 10px; font-weight: 700; color: #64748b; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.5px; }
     .field input {
@@ -50,11 +65,6 @@
     .field input:focus { border-color: #3b82f6; background: #fff; }
     .field input.error { border-color: #ef4444; background: #fff5f5; }
 
-    .pass-wrap { position: relative; }
-    .pass-wrap input { padding-right: 36px; }
-    .eye-btn { position: absolute; right: 9px; top: 50%; transform: translateY(-50%); background: none; border: none; cursor: pointer; font-size: 14px; color: #94a3b8; padding: 0; }
-
-    /* TABS */
     .tabs { display: flex; gap: 3px; margin-bottom: 7px; background: #f1f5f9; border-radius: 7px; padding: 3px; }
     .tab { flex: 1; padding: 6px 4px; border: none; border-radius: 5px; font-size: 12px; font-weight: 600; cursor: pointer; background: none; color: #64748b; transition: all 0.2s; }
     .tab.active { background: #fff; color: #1d4ed8; box-shadow: 0 1px 4px rgba(0,0,0,0.1); }
@@ -78,37 +88,29 @@
     .found-badge { background: #dbeafe; color: #2563eb; border-radius: 20px; padding: 2px 9px; font-size: 11px; font-weight: 700; }
     .hint { font-size: 11px; color: #94a3b8; margin-bottom: 5px; }
 
-    /* PROGRESS MONITOR — 3rd column */
-    .progress-col {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-    .progress-title { font-size: 11px; font-weight: 700; color: #1e293b; margin-bottom: 4px; display: flex; align-items: center; gap: 4px; }
-
-    .stat-box {
-      background: #f8fafc;
-      border: 1px solid #e2e8f0;
-      border-radius: 8px;
-      padding: 7px 8px;
-      text-align: center;
-    }
+    /* PROGRESS COLUMN */
+    .progress-col { display: flex; flex-direction: column; gap: 6px; }
+    .progress-title { font-size: 11px; font-weight: 700; color: #1e293b; margin-bottom: 2px; }
+    .stat-box { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 7px 8px; text-align: center; }
     .stat-label { font-size: 8px; font-weight: 700; color: #94a3b8; letter-spacing: 0.8px; text-transform: uppercase; margin-bottom: 2px; }
-    .stat-num { font-size: 18px; font-weight: 800; line-height: 1; }
-
+    .stat-num { font-size: 20px; font-weight: 800; line-height: 1; }
     .progress-track { height: 6px; background: #e2e8f0; border-radius: 99px; overflow: hidden; }
     .progress-fill { height: 100%; border-radius: 99px; transition: width 0.4s ease; background: linear-gradient(90deg, #3b82f6, #6366f1); }
-    .status-info { font-size: 10px; color: #64748b; text-align: center; min-height: 14px; line-height: 1.3; }
+    .status-info { font-size: 10px; color: #64748b; text-align: center; min-height: 14px; line-height: 1.4; }
     .completed-msg { text-align: center; color: #16a34a; font-weight: 700; font-size: 11px; }
 
-    /* SEND BUTTON */
+    /* LIMIT INFO */
+    .limit-info { background: #fefce8; border: 1px solid #fde047; border-radius: 8px; padding: 8px 12px; font-size: 12px; color: #854d0e; margin-bottom: 16px; display: flex; align-items: center; gap: 6px; }
+
+    .spam-box { background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px; padding: 8px 12px; display: flex; align-items: center; gap: 7px; margin-top: 14px; }
+
     .btn-send {
       width: 100%;
       background: #16a34a;
       color: #fff;
       border: none;
       border-radius: 10px;
-      padding: 13px;
+      padding: 14px;
       font-size: 15px;
       font-weight: 700;
       cursor: pointer;
@@ -119,15 +121,17 @@
     .btn-send:disabled { background: #64748b; cursor: not-allowed; transform: none; }
     .btn-send.sending { background: #2563eb; }
 
-    .spam-box { background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px; padding: 8px 12px; display: flex; align-items: center; gap: 7px; margin-top: 14px; }
-
-    /* LOGS */
-    .logs-card { background: #fff; border-radius: 16px; padding: 18px; box-shadow: 0 4px 24px rgba(0,0,0,0.10); max-width: 1050px; margin: 0 auto; }
-    .logs-list { max-height: 180px; overflow-y: auto; }
+    .logs-card { background: #fff; border-radius: 16px; padding: 18px; box-shadow: 0 4px 24px rgba(0,0,0,0.10); max-width: 1100px; margin: 0 auto; }
+    .logs-list { max-height: 200px; overflow-y: auto; }
     .log-row { display: flex; align-items: center; gap: 8px; padding: 5px 0; border-bottom: 1px solid #f1f5f9; font-size: 12px; }
     .log-email { color: #1e293b; font-family: monospace; flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
     .log-account { color: #94a3b8; font-size: 10px; white-space: nowrap; }
     .log-reason { color: #dc2626; font-size: 11px; margin-left: auto; }
+
+    /* MODE TOGGLE */
+    .mode-toggle { display: flex; gap: 8px; margin-bottom: 16px; }
+    .mode-btn { flex: 1; padding: 10px; border: 2px solid #e2e8f0; border-radius: 10px; background: #f8fafc; font-size: 13px; font-weight: 600; color: #64748b; cursor: pointer; transition: all 0.2s; text-align: center; }
+    .mode-btn.active { border-color: #2563eb; background: #eff6ff; color: #2563eb; }
   </style>
 </head>
 <body>
@@ -139,115 +143,175 @@
 <div class="main-card">
   <div class="card-title">✏️ Compose Message</div>
 
-  <div class="three-col">
+  <!-- MODE SELECT -->
+  <div class="mode-toggle">
+    <button class="mode-btn active" id="modeSingle" onclick="switchMode('single')">
+      👤 Single Gmail
+    </button>
+    <button class="mode-btn" id="modeCSV" onclick="switchMode('csv')">
+      📋 CSV — Multiple Gmail Accounts (400+ accounts)
+    </button>
+  </div>
 
-    <!-- COLUMN 1 -->
-    <div>
+  <!-- SINGLE MODE -->
+  <div id="singleMode">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:12px;">
       <div class="field">
         <label>Sender Name</label>
         <input type="text" id="senderName" placeholder="Your Name" />
       </div>
       <div class="field">
+        <label>Gmail</label>
+        <input type="email" id="singleGmail" placeholder="you@gmail.com" />
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:12px;">
+      <div class="field">
         <label>App Password</label>
-        <div class="pass-wrap">
-          <input type="password" id="singlePass" placeholder="xxxx xxxx xxxx xxxx" />
-          <button class="eye-btn" onclick="togglePass()" id="eyeBtn">👁️</button>
+        <div style="position:relative;">
+          <input type="password" id="singlePass" placeholder="xxxx xxxx xxxx xxxx" style="padding-right:36px;" />
+          <button onclick="togglePass()" style="position:absolute;right:9px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;font-size:14px;" id="eyeBtn">👁️</button>
         </div>
       </div>
+      <div class="field">
+        <label>Email Subject</label>
+        <input type="text" id="subject" placeholder="Subject line..." />
+      </div>
+    </div>
+  </div>
+
+  <!-- CSV MODE -->
+  <div id="csvMode" style="display:none;">
+    <div class="csv-section">
+      <h3>📋 Upload Gmail Accounts CSV</h3>
+      <p>CSV mein 2 columns hone chahiye: gmail, password</p>
+      <div class="csv-format">
+        <code>gmail,password<br>
+gmail1@gmail.com,abcdabcdabcd<br>
+gmail2@gmail.com,xyzxyzxyzxyz<br>
+gmail3@gmail.com,mnopmnopmnop</code>
+      </div>
+      <input type="file" id="csvFile" accept=".csv" style="display:none;" onchange="loadCSV()" />
+      <button class="btn-upload" onclick="document.getElementById('csvFile').click()">📁 CSV File Upload Karo</button>
+      <div class="accounts-loaded" id="accountsLoaded">✅ <span id="accountCount">0</span> Gmail accounts loaded!</div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:12px;">
+      <div class="field">
+        <label>Sender Name</label>
+        <input type="text" id="senderNameCSV" placeholder="Your Name" />
+      </div>
+      <div class="field">
+        <label>Email Subject</label>
+        <input type="text" id="subjectCSV" placeholder="Subject line..." />
+      </div>
+    </div>
+
+    <!-- LIMIT INFO -->
+    <div class="limit-info">
+      ⚡ <strong>Auto Limit:</strong> Har Gmail se sirf <strong>25 emails</strong> bheje jayenge — spam nahi hoga!
+    </div>
+  </div>
+
+  <!-- MESSAGE BODY + RECIPIENTS -->
+  <div class="three-col">
+    <!-- COL 1 -->
+    <div>
       <div style="font-size:12px;font-weight:700;color:#1e293b;margin-bottom:6px;">📝 Message Body</div>
       <div class="tabs">
         <button class="tab active" id="tabPlain" onclick="switchTab('plain')">Plain</button>
         <button class="tab" id="tabHtml" onclick="switchTab('html')">HTML</button>
         <button class="tab" id="tabBoth" onclick="switchTab('both')">Both</button>
       </div>
-      <div id="plainSection"><textarea id="bodyText" rows="8" placeholder="Write your email here..."></textarea></div>
-      <div id="htmlSection" style="display:none;"><textarea id="bodyHtml" rows="8" placeholder="<p>HTML email...</p>"></textarea></div>
+      <div id="plainSection"><textarea id="bodyText" rows="10" placeholder="Write your email here..."></textarea></div>
+      <div id="htmlSection" style="display:none;"><textarea id="bodyHtml" rows="10" placeholder="<p>HTML email...</p>"></textarea></div>
       <div id="bothSection" style="display:none;">
-        <textarea id="bodyText2" rows="4" placeholder="Plain text..." style="margin-bottom:5px;"></textarea>
-        <textarea id="bodyHtml2" rows="4" placeholder="<p>HTML...</p>"></textarea>
+        <textarea id="bodyText2" rows="5" placeholder="Plain text..." style="margin-bottom:5px;"></textarea>
+        <textarea id="bodyHtml2" rows="5" placeholder="<p>HTML...</p>"></textarea>
       </div>
     </div>
 
-    <!-- COLUMN 2 -->
+    <!-- COL 2 -->
     <div>
-      <div class="field">
-        <label>Gmail</label>
-        <input type="email" id="singleGmail" placeholder="you@gmail.com" />
-      </div>
-      <div class="field">
-        <label>Email Subject</label>
-        <input type="text" id="subject" placeholder="Subject line..." />
-      </div>
       <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:5px;">
         <div style="font-size:12px;font-weight:700;color:#1e293b;">👥 Recipients</div>
         <span class="found-badge" id="foundBadge">0 found</span>
       </div>
       <div class="hint">Paste emails — comma, new line, or Excel copy</div>
-      <textarea id="recipients" rows="10" placeholder="email1@gmail.com&#10;email2@gmail.com&#10;email3@gmail.com" oninput="updateCount()"></textarea>
+      <textarea id="recipients" rows="12" placeholder="email1@gmail.com&#10;email2@gmail.com&#10;email3@gmail.com" oninput="updateCount()"></textarea>
     </div>
 
-    <!-- COLUMN 3: PROGRESS MONITOR -->
+    <!-- COL 3: PROGRESS -->
     <div class="progress-col">
       <div class="progress-title">📊 Progress Monitor</div>
-
-      <div class="stat-box">
-        <div class="stat-label">Total</div>
-        <div class="stat-num" id="statTotal" style="color:#2563eb;">0</div>
-      </div>
-      <div class="stat-box">
-        <div class="stat-label">Sent</div>
-        <div class="stat-num" id="statSent" style="color:#16a34a;">0</div>
-      </div>
-      <div class="stat-box">
-        <div class="stat-label">Failed</div>
-        <div class="stat-num" id="statFailed" style="color:#dc2626;">0</div>
-      </div>
-      <div class="stat-box">
-        <div class="stat-label">Remaining</div>
-        <div class="stat-num" id="statRemaining" style="color:#d97706;">0</div>
-      </div>
-
-      <div class="progress-track">
-        <div class="progress-fill" id="progressFill" style="width:0%;"></div>
-      </div>
+      <div class="stat-box"><div class="stat-label">Total</div><div class="stat-num" id="statTotal" style="color:#2563eb;">0</div></div>
+      <div class="stat-box"><div class="stat-label">Sent</div><div class="stat-num" id="statSent" style="color:#16a34a;">0</div></div>
+      <div class="stat-box"><div class="stat-label">Failed</div><div class="stat-num" id="statFailed" style="color:#dc2626;">0</div></div>
+      <div class="stat-box"><div class="stat-label">Remaining</div><div class="stat-num" id="statRemaining" style="color:#d97706;">0</div></div>
+      <div class="progress-track"><div class="progress-fill" id="progressFill" style="width:0%;"></div></div>
       <div class="status-info" id="statusInfo">Ready</div>
       <div class="completed-msg" id="completedMsg" style="display:none;">✅ Done!</div>
     </div>
-
   </div>
 
-  <!-- SPAM BOX -->
   <div class="spam-box">
     <span>🛡️</span>
-    <span style="font-size:12px;color:#15803d;font-weight:600;">Spam Protection Active</span>
+    <span style="font-size:12px;color:#15803d;font-weight:600;">Spam Protection Active — 25 emails/Gmail limit</span>
     <span style="margin-left:auto;font-size:11px;color:#16a34a;font-weight:600;">✅ Ready</span>
   </div>
 
-  <!-- SEND ALL BUTTON -->
   <button class="btn-send" id="sendBtn" onclick="startSending()">✈️ Send All</button>
 </div>
 
 <!-- LOGS -->
-<div class="logs-card" id="logsCard" style="display:none; margin-top:16px;">
+<div class="logs-card" id="logsCard" style="display:none;margin-top:16px;">
   <div class="card-title">📋 Send Log</div>
   <div class="logs-list" id="logsList"></div>
 </div>
 
 <script>
   let currentTab = 'plain';
+  let currentMode = 'single';
   let isSending = false;
   let sent = 0, failed = 0, total = 0;
-  let sendingStarted = false;
+  let csvAccounts = []; // [{gmail, password}]
+  const LIMIT_PER_ACCOUNT = 25;
+
+  // Mode switch
+  function switchMode(mode) {
+    currentMode = mode;
+    document.getElementById('singleMode').style.display = mode === 'single' ? 'block' : 'none';
+    document.getElementById('csvMode').style.display = mode === 'csv' ? 'block' : 'none';
+    document.getElementById('modeSingle').classList.toggle('active', mode === 'single');
+    document.getElementById('modeCSV').classList.toggle('active', mode === 'csv');
+  }
+
+  // Load CSV
+  function loadCSV() {
+    const file = document.getElementById('csvFile').files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      const lines = e.target.result.split('\n').filter(l => l.trim());
+      csvAccounts = [];
+      for (let i = 0; i < lines.length; i++) {
+        const parts = lines[i].split(',');
+        if (parts.length >= 2) {
+          const gmail = parts[0].trim();
+          const password = parts[1].trim().replace(/\s/g, '');
+          if (gmail.includes('@') && password.length > 8) {
+            csvAccounts.push({ gmail, password });
+          }
+        }
+      }
+      document.getElementById('accountCount').textContent = csvAccounts.length;
+      document.getElementById('accountsLoaded').style.display = 'block';
+    };
+    reader.readAsText(file);
+  }
 
   // Auto-save
-  function saveFields() {
-    try {
-      localStorage.setItem('sc_name', document.getElementById('senderName').value);
-      localStorage.setItem('sc_gmail', document.getElementById('singleGmail').value);
-      localStorage.setItem('sc_subject', document.getElementById('subject').value);
-    } catch(e) {}
-  }
-  function loadFields() {
+  window.onload = function() {
     try {
       const n = localStorage.getItem('sc_name');
       const g = localStorage.getItem('sc_gmail');
@@ -256,10 +320,15 @@
       if (g) document.getElementById('singleGmail').value = g;
       if (s) document.getElementById('subject').value = s;
     } catch(e) {}
-  }
-  window.onload = loadFields;
+  };
   ['senderName','singleGmail','subject'].forEach(id => {
-    document.getElementById(id).addEventListener('input', saveFields);
+    document.getElementById(id).addEventListener('input', () => {
+      try {
+        localStorage.setItem('sc_name', document.getElementById('senderName').value);
+        localStorage.setItem('sc_gmail', document.getElementById('singleGmail').value);
+        localStorage.setItem('sc_subject', document.getElementById('subject').value);
+      } catch(e) {}
+    });
   });
 
   function togglePass() {
@@ -270,51 +339,32 @@
 
   function switchTab(tab) {
     currentTab = tab;
-    document.getElementById('plainSection').style.display = tab==='plain'?'block':'none';
-    document.getElementById('htmlSection').style.display = tab==='html'?'block':'none';
-    document.getElementById('bothSection').style.display = tab==='both'?'block':'none';
-    ['Plain','Html','Both'].forEach(t => document.getElementById('tab'+t).classList.toggle('active', t.toLowerCase()===tab));
+    document.getElementById('plainSection').style.display = tab === 'plain' ? 'block' : 'none';
+    document.getElementById('htmlSection').style.display = tab === 'html' ? 'block' : 'none';
+    document.getElementById('bothSection').style.display = tab === 'both' ? 'block' : 'none';
+    ['Plain','Html','Both'].forEach(t => document.getElementById('tab'+t).classList.toggle('active', t.toLowerCase() === tab));
   }
 
   function parseEmails(raw) {
-    return [...new Set(raw.split(/[\n,;]+/).map(e=>e.trim()).filter(e=>/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e)))];
+    return [...new Set(raw.split(/[\n,;]+/).map(e => e.trim()).filter(e => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e)))];
   }
 
   function updateCount() {
     const emails = parseEmails(document.getElementById('recipients').value);
     document.getElementById('foundBadge').textContent = emails.length + ' found';
-    if (!sendingStarted) {
+    if (!isSending) {
       document.getElementById('statTotal').textContent = emails.length;
       document.getElementById('statRemaining').textContent = emails.length;
     }
   }
 
   function getBody() {
-    if (currentTab==='plain') return { bodyText: document.getElementById('bodyText').value, bodyHtml:'', format:'plain' };
-    if (currentTab==='html') return { bodyText:'', bodyHtml: document.getElementById('bodyHtml').value, format:'html' };
-    return { bodyText: document.getElementById('bodyText2').value, bodyHtml: document.getElementById('bodyHtml2').value, format:'both' };
+    if (currentTab === 'plain') return { bodyText: document.getElementById('bodyText').value, bodyHtml: '', format: 'plain' };
+    if (currentTab === 'html') return { bodyText: '', bodyHtml: document.getElementById('bodyHtml').value, format: 'html' };
+    return { bodyText: document.getElementById('bodyText2').value, bodyHtml: document.getElementById('bodyHtml2').value, format: 'both' };
   }
 
-  function validate() {
-    let ok = true;
-    ['senderName','singleGmail','singlePass','subject'].forEach(id => {
-      const el = document.getElementById(id);
-      if (!el.value.trim()) { el.classList.add('error'); ok=false; }
-      else el.classList.remove('error');
-    });
-    const rec = document.getElementById('recipients');
-    if (parseEmails(rec.value).length===0) { rec.classList.add('error'); ok=false; }
-    else rec.classList.remove('error');
-    const { bodyText, bodyHtml } = getBody();
-    if (!bodyText && !bodyHtml) {
-      document.getElementById(currentTab==='html'?'bodyHtml':'bodyText').classList.add('error');
-      ok=false;
-    }
-    if (!ok) setStatus('⚠️ Fill all fields!', '#ef4444');
-    return ok;
-  }
-
-  function setStatus(msg, color='#64748b') {
+  function setStatus(msg, color = '#64748b') {
     const el = document.getElementById('statusInfo');
     el.textContent = msg;
     el.style.color = color;
@@ -324,9 +374,9 @@
     document.getElementById('statTotal').textContent = total;
     document.getElementById('statSent').textContent = sent;
     document.getElementById('statFailed').textContent = failed;
-    document.getElementById('statRemaining').textContent = Math.max(0,total-sent-failed);
-    const pct = total>0?Math.round(((sent+failed)/total)*100):0;
-    document.getElementById('progressFill').style.width = pct+'%';
+    document.getElementById('statRemaining').textContent = Math.max(0, total - sent - failed);
+    const pct = total > 0 ? Math.round(((sent + failed) / total) * 100) : 0;
+    document.getElementById('progressFill').style.width = pct + '%';
   }
 
   function addLog(email, account, ok, reason) {
@@ -334,29 +384,45 @@
     const row = document.createElement('div');
     row.className = 'log-row';
     row.innerHTML = `
-      <span style="color:${ok?'#16a34a':'#dc2626'}">${ok?'✅':'❌'}</span>
+      <span style="color:${ok ? '#16a34a' : '#dc2626'}">${ok ? '✅' : '❌'}</span>
       <span class="log-email">${email}</span>
       <span class="log-account">via ${account}</span>
-      ${!ok?`<span class="log-reason">${reason||'Failed'}</span>`:''}`;
+      ${!ok ? `<span class="log-reason">${reason || 'Failed'}</span>` : ''}`;
     list.appendChild(row);
     list.scrollTop = list.scrollHeight;
   }
 
-  function sleep(ms) { return new Promise(r=>setTimeout(r,ms)); }
+  function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
 
   async function startSending() {
     if (isSending) return;
-    if (!validate()) return;
 
     const emails = parseEmails(document.getElementById('recipients').value);
-    const subject = document.getElementById('subject').value.trim();
-    const senderName = document.getElementById('senderName').value.trim();
-    const gmail = document.getElementById('singleGmail').value.trim();
-    const pass = document.getElementById('singlePass').value.replace(/\s/g,'');
+    if (emails.length === 0) { alert('Recipients add karo!'); return; }
+
     const { bodyText, bodyHtml, format } = getBody();
+    if (!bodyText && !bodyHtml) { alert('Message body likho!'); return; }
+
+    let accounts = [];
+    let senderName = '';
+    let subject = '';
+
+    if (currentMode === 'single') {
+      const gmail = document.getElementById('singleGmail').value.trim();
+      const pass = document.getElementById('singlePass').value.replace(/\s/g, '');
+      senderName = document.getElementById('senderName').value.trim();
+      subject = document.getElementById('subject').value.trim();
+      if (!gmail || !pass || !senderName || !subject) { alert('Saari fields fill karo!'); return; }
+      accounts = [{ gmail, password: pass }];
+    } else {
+      if (csvAccounts.length === 0) { alert('CSV file upload karo pehle!'); return; }
+      senderName = document.getElementById('senderNameCSV').value.trim();
+      subject = document.getElementById('subjectCSV').value.trim();
+      if (!senderName || !subject) { alert('Sender Name aur Subject fill karo!'); return; }
+      accounts = csvAccounts;
+    }
 
     isSending = true;
-    sendingStarted = true;
     sent = 0; failed = 0; total = emails.length;
 
     const btn = document.getElementById('sendBtn');
@@ -370,30 +436,59 @@
     document.getElementById('progressFill').style.background = 'linear-gradient(90deg,#3b82f6,#6366f1)';
     updateStats();
 
-    for (let i=0; i<emails.length; i++) {
+    // Account rotation with 25 per account limit
+    let accountIndex = 0;
+    let countForCurrentAccount = 0;
+
+    for (let i = 0; i < emails.length; i++) {
       const email = emails[i];
-      setStatus(`📤 ${i+1}/${total}: ${email}`);
-      btn.textContent = `⏳ Sending... ${i+1}/${total}`;
+
+      // Switch account every 25 emails
+      if (countForCurrentAccount >= LIMIT_PER_ACCOUNT) {
+        accountIndex++;
+        countForCurrentAccount = 0;
+        if (accountIndex >= accounts.length) {
+          setStatus(`⚠️ All accounts used! ${emails.length - i} emails remaining.`, '#dc2626');
+          failed += (emails.length - i);
+          updateStats();
+          break;
+        }
+        // Small pause between account switches
+        await sleep(2000);
+      }
+
+      const account = accounts[accountIndex];
+      setStatus(`📤 Account ${accountIndex + 1}/${accounts.length} | Email ${i + 1}/${total}`);
+      btn.textContent = `⏳ Sending... ${i + 1}/${total}`;
 
       try {
         const res = await fetch('/send', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ gmail, appPassword: pass, senderName, to: email, subject, bodyText, bodyHtml, format })
+          body: JSON.stringify({
+            gmail: account.gmail,
+            appPassword: account.password,
+            senderName,
+            to: email,
+            subject,
+            bodyText,
+            bodyHtml,
+            format
+          })
         });
         const data = await res.json();
-        if (res.ok && data.success) { sent++; addLog(email, gmail, true, null); }
-        else { failed++; addLog(email, gmail, false, data.error||'Failed'); }
+        if (res.ok && data.success) { sent++; addLog(email, account.gmail, true, null); }
+        else { failed++; addLog(email, account.gmail, false, data.error || 'Failed'); }
       } catch(e) {
-        failed++; addLog(email, gmail, false, 'Network error');
+        failed++; addLog(email, account.gmail, false, 'Network error');
       }
 
+      countForCurrentAccount++;
       updateStats();
-      if (i < emails.length-1) await sleep(800);
+      await sleep(500);
     }
 
     isSending = false;
-    sendingStarted = false;
     btn.disabled = false;
     btn.classList.remove('sending');
     btn.textContent = '🔄 Send Again';
@@ -402,15 +497,15 @@
     setStatus(`✅ ${sent} sent, ${failed} failed`, '#16a34a');
 
     btn.onclick = function() {
-      sent=0; failed=0; total=0; sendingStarted=false; isSending=false;
-      ['statTotal','statSent','statFailed','statRemaining'].forEach(id=>document.getElementById(id).textContent='0');
-      document.getElementById('progressFill').style.width='0%';
-      document.getElementById('progressFill').style.background='linear-gradient(90deg,#3b82f6,#6366f1)';
-      document.getElementById('completedMsg').style.display='none';
-      document.getElementById('logsCard').style.display='none';
-      document.getElementById('logsList').innerHTML='';
-      setStatus('Ready','#64748b');
-      btn.textContent='✈️ Send All';
+      sent = 0; failed = 0; total = 0; isSending = false;
+      ['statTotal','statSent','statFailed','statRemaining'].forEach(id => document.getElementById(id).textContent = '0');
+      document.getElementById('progressFill').style.width = '0%';
+      document.getElementById('progressFill').style.background = 'linear-gradient(90deg,#3b82f6,#6366f1)';
+      document.getElementById('completedMsg').style.display = 'none';
+      document.getElementById('logsCard').style.display = 'none';
+      document.getElementById('logsList').innerHTML = '';
+      setStatus('Ready', '#64748b');
+      btn.textContent = '✈️ Send All';
       btn.onclick = startSending;
       updateCount();
     };
