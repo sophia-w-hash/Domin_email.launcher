@@ -1,7 +1,7 @@
 {
   "name": "bulk-mailer",
   "version": "1.0.0",
-  "description": "Secure Bulk Email Sender",
+  "description": "Bulk Email Sender with Gmail App Password",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
