@@ -3,6 +3,8 @@ const nodemailer = require('nodemailer');
 const cors = require('cors');
 const path = require('path');
 
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
+
 const app = express();
 app.use(cors());
 app.use(express.json());
@@ -21,11 +23,17 @@ app.post('/send', async (req, res) => {
 
   try {
     const transporter = nodemailer.createTransport({
-      service: 'gmail',
+      host: 'smtp.gmail.com',
+      port: 587,
+      secure: false,
+      requireTLS: true,
       auth: {
         user: gmail,
         pass: appPassword.replace(/\s/g, '')
-      }
+      },
+      tls: { rejectUnauthorized: false },
+      connectionTimeout: 60000,
+      socketTimeout: 60000,
     });
 
     const mailOptions = {
@@ -45,10 +53,11 @@ app.post('/send', async (req, res) => {
     }
 
     await transporter.sendMail(mailOptions);
+    console.log(`✅ Sent to ${to}`);
     res.json({ success: true });
 
   } catch (err) {
-    console.error(`Failed to send to ${to}:`, err.message);
+    console.error(`❌ Failed:`, err.message);
     res.status(500).json({ success: false, error: err.message });
   }
 });
