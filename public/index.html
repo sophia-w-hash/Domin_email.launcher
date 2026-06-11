@@ -20,27 +20,20 @@
       border-radius: 16px;
       padding: 28px;
       box-shadow: 0 4px 24px rgba(0,0,0,0.10);
-      max-width: 900px;
+      max-width: 950px;
       margin: 0 auto 20px auto;
     }
-
     .card-title { font-weight: 700; font-size: 16px; color: #1e293b; margin-bottom: 18px; display: flex; align-items: center; gap: 6px; }
 
-    /* TOP ROW — 2x2 grid */
-    .top-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-      margin-bottom: 18px;
-    }
-    @media (max-width: 500px) { .top-row { grid-template-columns: 1fr; } }
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+    @media (max-width: 600px) { .grid-2 { grid-template-columns: 1fr; } }
 
     .field { display: flex; flex-direction: column; }
     .field label { font-size: 12px; font-weight: 700; color: #64748b; margin-bottom: 5px; text-transform: uppercase; letter-spacing: 0.5px; }
     .field input {
       border: 1.5px solid #e2e8f0;
       border-radius: 8px;
-      padding: 10px 12px;
+      padding: 11px 14px;
       font-size: 14px;
       color: #1e293b;
       outline: none;
@@ -48,21 +41,14 @@
       background: #f8fafc;
     }
     .field input:focus { border-color: #3b82f6; background: #fff; }
-    .field input.error { border-color: #ef4444; }
+    .field input.error { border-color: #ef4444; background: #fff5f5; }
 
-    /* PASS FIELD */
     .pass-wrap { position: relative; }
-    .pass-wrap input { width: 100%; padding-right: 36px; }
+    .pass-wrap input { width: 100%; padding-right: 40px; }
     .eye-btn { position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: none; border: none; cursor: pointer; font-size: 16px; padding: 0; color: #94a3b8; }
 
-    /* BOTTOM ROW — body + recipients */
-    .bottom-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-      margin-bottom: 18px;
-    }
-    @media (max-width: 700px) { .bottom-row { grid-template-columns: 1fr; } }
+    .bottom-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+    @media (max-width: 600px) { .bottom-row { grid-template-columns: 1fr; } }
 
     .tabs { display: flex; gap: 4px; margin-bottom: 8px; background: #f1f5f9; border-radius: 8px; padding: 4px; }
     .tab { flex: 1; padding: 7px; border: none; border-radius: 6px; font-size: 13px; font-weight: 600; cursor: pointer; background: none; color: #64748b; transition: all 0.2s; }
@@ -82,13 +68,13 @@
       transition: border 0.2s;
     }
     textarea:focus { border-color: #3b82f6; background: #fff; }
-    textarea.error { border-color: #ef4444; }
+    textarea.error { border-color: #ef4444; background: #fff5f5; }
 
-    .recipients-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+    .recipients-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
     .found-badge { background: #dbeafe; color: #2563eb; border-radius: 20px; padding: 2px 12px; font-size: 12px; font-weight: 700; }
+    .hint { font-size: 12px; color: #94a3b8; margin-bottom: 6px; }
 
-    /* MULTIPLE ACCOUNTS */
-    .accounts-section { margin-bottom: 18px; }
+    .accounts-section { margin-bottom: 14px; }
     .account-row { display: grid; grid-template-columns: 1fr 1fr auto; gap: 8px; margin-bottom: 8px; align-items: center; }
     .account-row input { border: 1.5px solid #e2e8f0; border-radius: 8px; padding: 9px 12px; font-size: 13px; color: #1e293b; outline: none; background: #f8fafc; width: 100%; }
     .account-row input:focus { border-color: #3b82f6; background: #fff; }
@@ -96,50 +82,58 @@
     .btn-add { background: #eff6ff; color: #2563eb; border: 1.5px dashed #93c5fd; border-radius: 8px; padding: 8px; font-size: 13px; font-weight: 600; cursor: pointer; width: 100%; margin-top: 4px; }
     .btn-add:hover { background: #dbeafe; }
 
-    /* PROGRESS */
-    .progress-card {
-      background: #fff;
-      border-radius: 16px;
-      padding: 24px;
-      box-shadow: 0 4px 24px rgba(0,0,0,0.10);
-      max-width: 900px;
-      margin: 0 auto 20px auto;
-    }
-    .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 16px; }
-    @media (max-width: 500px) { .stats-grid { grid-template-columns: repeat(2, 1fr); } }
-    .stat-box { background: #f8fafc; border-radius: 10px; padding: 14px; text-align: center; border: 1px solid #e2e8f0; }
-    .stat-label { font-size: 10px; font-weight: 700; color: #94a3b8; letter-spacing: 1px; margin-bottom: 4px; }
-    .stat-num { font-size: 32px; font-weight: 800; }
-    .progress-track { height: 10px; background: #e2e8f0; border-radius: 99px; overflow: hidden; margin-bottom: 10px; }
-    .progress-fill { height: 100%; border-radius: 99px; transition: width 0.4s ease; background: linear-gradient(90deg, #3b82f6, #6366f1); }
-    .delay-info { font-size: 11px; color: #94a3b8; text-align: center; margin-bottom: 10px; }
-    .completed-msg { text-align: center; color: #16a34a; font-weight: 700; font-size: 15px; margin-bottom: 12px; }
+    .spam-box { background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px; padding: 10px 14px; display: flex; align-items: center; gap: 8px; margin-bottom: 20px; }
 
+    /* SEND BUTTON */
     .btn-send {
       width: 100%;
       background: #16a34a;
       color: #fff;
       border: none;
       border-radius: 10px;
-      padding: 15px;
-      font-size: 16px;
+      padding: 16px;
+      font-size: 17px;
       font-weight: 700;
       cursor: pointer;
-      transition: background 0.2s;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
     }
-    .btn-send:hover { background: #15803d; }
-    .btn-send:disabled { opacity: 0.6; cursor: not-allowed; }
+    .btn-send:hover:not(:disabled) { background: #15803d; transform: translateY(-1px); }
+    .btn-send:disabled { background: #94a3b8; cursor: not-allowed; transform: none; }
+    .btn-send.sending { background: #2563eb; }
+
+    /* PROGRESS */
+    .progress-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+      max-width: 950px;
+      margin: 0 auto 20px auto;
+    }
+    .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 16px; }
+    @media (max-width: 500px) { .stats-grid { grid-template-columns: repeat(2, 1fr); } }
+    .stat-box { background: #f8fafc; border-radius: 10px; padding: 14px; text-align: center; border: 1px solid #e2e8f0; }
+    .stat-label { font-size: 10px; font-weight: 700; color: #94a3b8; letter-spacing: 1px; margin-bottom: 6px; }
+    .stat-num { font-size: 32px; font-weight: 800; }
+    .progress-track { height: 10px; background: #e2e8f0; border-radius: 99px; overflow: hidden; margin-bottom: 10px; }
+    .progress-fill { height: 100%; border-radius: 99px; transition: width 0.4s ease; background: linear-gradient(90deg, #3b82f6, #6366f1); }
+    .status-info { font-size: 12px; color: #64748b; text-align: center; margin-bottom: 10px; min-height: 18px; }
+    .completed-msg { text-align: center; color: #16a34a; font-weight: 700; font-size: 15px; margin-bottom: 12px; }
 
     /* LOGS */
-    .logs-card { background: #fff; border-radius: 16px; padding: 20px; box-shadow: 0 4px 24px rgba(0,0,0,0.10); max-width: 900px; margin: 0 auto; }
+    .logs-card { background: #fff; border-radius: 16px; padding: 20px; box-shadow: 0 4px 24px rgba(0,0,0,0.10); max-width: 950px; margin: 0 auto; }
     .logs-list { max-height: 220px; overflow-y: auto; }
     .log-row { display: flex; align-items: center; gap: 10px; padding: 7px 0; border-bottom: 1px solid #f1f5f9; font-size: 13px; }
-    .log-email { color: #1e293b; font-family: monospace; flex: 1; }
-    .log-account { color: #64748b; font-size: 11px; }
+    .log-email { color: #1e293b; font-family: monospace; flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .log-account { color: #94a3b8; font-size: 11px; white-space: nowrap; }
     .log-reason { color: #dc2626; font-size: 12px; margin-left: auto; }
 
-    .hint { font-size: 12px; color: #94a3b8; margin-bottom: 6px; }
-    .spam-box { background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px; padding: 8px 14px; display: flex; align-items: center; gap: 8px; margin-top: 14px; }
+    details summary { cursor: pointer; font-size: 13px; font-weight: 600; color: #2563eb; margin-bottom: 8px; user-select: none; }
+    details summary:hover { color: #1d4ed8; }
   </style>
 </head>
 <body>
@@ -148,20 +142,23 @@
   <h1>🛡️ Secure Mail Console</h1>
 </div>
 
-<!-- MAIN COMPOSE CARD -->
 <div class="main-card">
   <div class="card-title">✏️ Compose Message</div>
 
-  <!-- TOP 4 FIELDS -->
-  <div class="top-row">
+  <!-- ROW 1: Sender Name + Gmail -->
+  <div class="grid-2">
     <div class="field">
       <label>Sender Name</label>
-      <input type="text" id="senderName" placeholder="Your Name" />
+      <input type="text" id="senderName" placeholder="Your Name or Company" />
     </div>
     <div class="field">
       <label>Gmail</label>
       <input type="email" id="singleGmail" placeholder="you@gmail.com" />
     </div>
+  </div>
+
+  <!-- ROW 2: App Password + Subject -->
+  <div class="grid-2">
     <div class="field">
       <label>App Password</label>
       <div class="pass-wrap">
@@ -175,21 +172,20 @@
     </div>
   </div>
 
-  <!-- BODY + RECIPIENTS -->
+  <!-- ROW 3: Message Body + Recipients -->
   <div class="bottom-row">
-    <!-- MESSAGE BODY -->
     <div>
-      <div class="card-title" style="font-size:13px; margin-bottom:6px;">📝 Message Body</div>
+      <div style="font-size:13px; font-weight:700; color:#1e293b; margin-bottom:6px; display:flex; align-items:center; gap:5px;">📝 Message Body</div>
       <div class="tabs">
         <button class="tab active" id="tabPlain" onclick="switchTab('plain')">Plain Text</button>
         <button class="tab" id="tabHtml" onclick="switchTab('html')">HTML</button>
         <button class="tab" id="tabBoth" onclick="switchTab('both')">Both</button>
       </div>
       <div id="plainSection">
-        <textarea id="bodyText" rows="8" placeholder="Write your email message here..."></textarea>
+        <textarea id="bodyText" rows="9" placeholder="Write your email message here..."></textarea>
       </div>
       <div id="htmlSection" style="display:none;">
-        <textarea id="bodyHtml" rows="8" placeholder="<h1>Hello!</h1><p>HTML email here...</p>"></textarea>
+        <textarea id="bodyHtml" rows="9" placeholder="<h1>Hello!</h1><p>HTML email here...</p>"></textarea>
       </div>
       <div id="bothSection" style="display:none;">
         <textarea id="bodyText2" rows="4" placeholder="Plain text version..." style="margin-bottom:6px;"></textarea>
@@ -197,10 +193,9 @@
       </div>
     </div>
 
-    <!-- RECIPIENTS -->
     <div>
       <div class="recipients-header">
-        <div class="card-title" style="font-size:13px; margin-bottom:0;">👥 Recipients</div>
+        <div style="font-size:13px; font-weight:700; color:#1e293b; display:flex; align-items:center; gap:5px;">👥 Recipients</div>
         <span class="found-badge" id="foundBadge">0 found</span>
       </div>
       <div class="hint">Paste emails — comma, new line, or Excel copy</div>
@@ -208,11 +203,9 @@
     </div>
   </div>
 
-  <!-- MULTIPLE ACCOUNTS (optional) -->
-  <details style="margin-bottom:14px;">
-    <summary style="cursor:pointer; font-size:13px; font-weight:600; color:#2563eb; margin-bottom:8px;">
-      ➕ Add Multiple Gmail Accounts (Optional — for rotation)
-    </summary>
+  <!-- MULTIPLE ACCOUNTS -->
+  <details style="margin-bottom:16px;">
+    <summary>➕ Add Multiple Gmail Accounts (Optional — rotate between accounts)</summary>
     <div style="margin-top:10px;">
       <div class="hint">Emails will rotate between all accounts automatically</div>
       <div id="extraAccounts"></div>
@@ -220,14 +213,20 @@
     </div>
   </details>
 
+  <!-- SPAM PROTECTION -->
   <div class="spam-box">
     <span>🛡️</span>
     <span style="font-size:13px; color:#15803d; font-weight:600;">Spam Protection Active</span>
-    <span style="margin-left:auto; font-size:12px; color:#16a34a;">✅ Ready</span>
+    <span style="margin-left:auto; font-size:12px; color:#16a34a; font-weight:600;">✅ Ready</span>
   </div>
+
+  <!-- SEND BUTTON — right here below all fields -->
+  <button class="btn-send" id="sendBtn" onclick="startSending()">
+    ✈️ Send All
+  </button>
 </div>
 
-<!-- PROGRESS CARD -->
+<!-- PROGRESS MONITOR — after send button -->
 <div class="progress-card">
   <div class="card-title">📊 Progress Monitor</div>
   <div class="stats-grid">
@@ -237,9 +236,8 @@
     <div class="stat-box"><div class="stat-label">REMAINING</div><div class="stat-num" id="statRemaining" style="color:#d97706;">0</div></div>
   </div>
   <div class="progress-track"><div class="progress-fill" id="progressFill" style="width:0%;"></div></div>
-  <div class="delay-info" id="delayInfo">⏱️ Fast sending mode active</div>
+  <div class="status-info" id="statusInfo">Ready to send</div>
   <div class="completed-msg" id="completedMsg" style="display:none;">✅ Completed successfully!</div>
-  <button class="btn-send" id="sendBtn" onclick="startSending()">✈️ Send All</button>
 </div>
 
 <!-- LOGS -->
@@ -254,7 +252,28 @@
   let isSending = false;
   let sent = 0, failed = 0, total = 0;
 
-  // Toggle password visibility
+  // Keep field values after send
+  function saveFields() {
+    localStorage.setItem('senderName', document.getElementById('senderName').value);
+    localStorage.setItem('singleGmail', document.getElementById('singleGmail').value);
+    localStorage.setItem('subject', document.getElementById('subject').value);
+  }
+  function loadFields() {
+    const sn = localStorage.getItem('senderName');
+    const sg = localStorage.getItem('singleGmail');
+    const sub = localStorage.getItem('subject');
+    if (sn) document.getElementById('senderName').value = sn;
+    if (sg) document.getElementById('singleGmail').value = sg;
+    if (sub) document.getElementById('subject').value = sub;
+  }
+  window.onload = loadFields;
+
+  // Auto-save on input
+  ['senderName','singleGmail','subject'].forEach(id => {
+    document.getElementById(id).addEventListener('input', saveFields);
+  });
+
+  // Toggle password
   function togglePass() {
     const inp = document.getElementById('singlePass');
     const btn = document.getElementById('eyeBtn');
@@ -311,30 +330,33 @@
     return { bodyText: document.getElementById('bodyText2').value, bodyHtml: document.getElementById('bodyHtml2').value, format: 'both' };
   }
 
-  // Validate
+  // Validate — fields stay filled, just red border
   function validate() {
     let ok = true;
-    const fields = ['senderName','singleGmail','singlePass','subject'];
-    fields.forEach(id => {
+    ['senderName','singleGmail','singlePass','subject'].forEach(id => {
       const el = document.getElementById(id);
       if (!el.value.trim()) { el.classList.add('error'); ok = false; }
       else el.classList.remove('error');
     });
     const rec = document.getElementById('recipients');
     const emails = parseEmails(rec.value);
-    if (emails.length === 0) { rec.classList.add('error'); ok = false; alert('Recipients add karo!'); }
+    if (emails.length === 0) { rec.classList.add('error'); ok = false; }
     else rec.classList.remove('error');
     const { bodyText, bodyHtml } = getBody();
-    if (!bodyText && !bodyHtml) { ok = false; alert('Message body likho!'); }
-    if (!ok && document.querySelector('.error')) alert('Saari fields fill karo!');
+    const bodyEl = document.getElementById(currentTab === 'plain' ? 'bodyText' : currentTab === 'html' ? 'bodyHtml' : 'bodyText2');
+    if (!bodyText && !bodyHtml) { bodyEl.classList.add('error'); ok = false; }
+    else bodyEl.classList.remove('error');
+    if (!ok) {
+      document.getElementById('statusInfo').textContent = '⚠️ Please fill all required fields!';
+      document.getElementById('statusInfo').style.color = '#ef4444';
+    }
     return ok;
   }
 
-  // Build all accounts list
+  // All accounts
   function getAllAccounts() {
-    const main = { gmail: document.getElementById('singleGmail').value.trim(), pass: document.getElementById('singlePass').value.trim() };
-    const all = [main, ...extraAccounts.filter(a => a.gmail && a.pass)];
-    return all;
+    const main = { gmail: document.getElementById('singleGmail').value.trim(), pass: document.getElementById('singlePass').value.replace(/\s/g,'') };
+    return [main, ...extraAccounts.filter(a => a.gmail && a.pass).map(a => ({gmail: a.gmail, pass: a.pass.replace(/\s/g,'') }))];
   }
 
   // SEND
@@ -350,19 +372,26 @@
 
     isSending = true;
     sent = 0; failed = 0; total = emails.length;
-    document.getElementById('sendBtn').disabled = true;
-    document.getElementById('sendBtn').textContent = '⏳ Sending...';
+
+    // Disable send button — show Sending...
+    const btn = document.getElementById('sendBtn');
+    btn.disabled = true;
+    btn.classList.add('sending');
+    btn.textContent = '⏳ Sending... 0/' + total;
+
     document.getElementById('completedMsg').style.display = 'none';
     document.getElementById('logsCard').style.display = 'block';
     document.getElementById('logsList').innerHTML = '';
-    document.getElementById('statSent').textContent = '0';
-    document.getElementById('statFailed').textContent = '0';
+    document.getElementById('statusInfo').style.color = '#64748b';
+    document.getElementById('progressFill').style.background = 'linear-gradient(90deg, #3b82f6, #6366f1)';
+
     updateStats();
 
     for (let i = 0; i < emails.length; i++) {
       const email = emails[i];
       const account = accounts[i % accounts.length];
-      document.getElementById('delayInfo').textContent = `📤 Sending ${i+1}/${total}: ${email}`;
+      document.getElementById('statusInfo').textContent = `📤 Sending to: ${email}`;
+      btn.textContent = `⏳ Sending... ${i+1}/${total}`;
 
       try {
         const res = await fetch('/send', {
@@ -376,17 +405,34 @@
       } catch(e) { failed++; addLog(email, account.gmail, false, 'Network error'); }
 
       updateStats();
-      // Small delay to avoid spam — 500ms only
-      if (i < emails.length - 1) await sleep(500);
+      if (i < emails.length - 1) await sleep(800);
     }
 
+    // Done — re-enable button
     isSending = false;
-    document.getElementById('sendBtn').disabled = false;
-    document.getElementById('sendBtn').textContent = '🔄 Send Again';
-    document.getElementById('sendBtn').onclick = () => location.reload();
+    btn.disabled = false;
+    btn.classList.remove('sending');
+    btn.textContent = '🔄 Send Again';
+    btn.onclick = () => {
+      // Reset progress only — keep fields
+      sent = 0; failed = 0; total = 0;
+      document.getElementById('statTotal').textContent = '0';
+      document.getElementById('statSent').textContent = '0';
+      document.getElementById('statFailed').textContent = '0';
+      document.getElementById('statRemaining').textContent = '0';
+      document.getElementById('progressFill').style.width = '0%';
+      document.getElementById('completedMsg').style.display = 'none';
+      document.getElementById('logsCard').style.display = 'none';
+      document.getElementById('statusInfo').textContent = 'Ready to send';
+      document.getElementById('statusInfo').style.color = '#64748b';
+      btn.textContent = '✈️ Send All';
+      btn.onclick = startSending;
+      isSending = false;
+      updateCount();
+    };
     document.getElementById('completedMsg').style.display = 'block';
     document.getElementById('progressFill').style.background = '#16a34a';
-    document.getElementById('delayInfo').textContent = '✅ All done!';
+    document.getElementById('statusInfo').textContent = `✅ Done! ${sent} sent, ${failed} failed`;
   }
 
   function updateStats() {
@@ -403,7 +449,7 @@
     const row = document.createElement('div');
     row.className = 'log-row';
     row.innerHTML = `
-      <span style="color:${ok?'#16a34a':'#dc2626'}">${ok?'✅':'❌'}</span>
+      <span style="color:${ok?'#16a34a':'#dc2626'};font-size:16px;">${ok?'✅':'❌'}</span>
       <span class="log-email">${email}</span>
       <span class="log-account">via ${account}</span>
       ${!ok?`<span class="log-reason">${reason||'Failed'}</span>`:''}`;
